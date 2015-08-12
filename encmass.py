@@ -4,7 +4,7 @@
 # Laura L Watkins [lauralwatkins@gmail.com]
 # -----------------------------------------------------------------------------
 
-from numpy import *
+import numpy as np
 from astropy import units as u
 from scipy import special
 
@@ -29,6 +29,6 @@ def encmass(r, norm, rs, alpha, beta, gamma):
     
     fn = lambda x: x**a * special.hyp2f1(a, -b, 1+a, -x)/a
     
-    encmass = (4*pi*norm*rs**3*fn(y.value)).to(u.Msun)
+    encmass = (4*np.pi*norm*rs**3*fn(y.value)).to(u.Msun)
     
     return encmass

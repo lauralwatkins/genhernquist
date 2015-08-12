@@ -4,7 +4,7 @@
 # Laura L Watkins [lauralwatkins@gmail.com]
 # -----------------------------------------------------------------------------
 
-from numpy import *
+import numpy as np
 from astropy import units as u, constants as c
 from scipy import special
 from encmass import encmass
@@ -26,6 +26,6 @@ def vcirc(r, norm, rs, alpha, beta, gamma):
     
     mass = encmass(r, norm, rs, alpha, beta, gamma)
     
-    vcirc = (sqrt(c.G*mass/r)).to("km/s")
+    vcirc = (np.sqrt(c.G*mass/r)).to("km/s")
     
     return vcirc
