@@ -4,6 +4,8 @@
 # Laura L Watkins [lauralwatkins@gmail.com]
 # -----------------------------------------------------------------------------
 
+from astropy import units as u
+
 
 def density(r, norm, rs, alpha, beta, gamma):
     
@@ -19,6 +21,8 @@ def density(r, norm, rs, alpha, beta, gamma):
       gamma : inner logarithmic slope
     """
     
-    rho = norm*(r/rs)**(-gamma)*(1+(r/rs)**alpha)**((gamma-beta)/alpha)
+    rrs = (r/rs).to(u.dimensionless_unscaled)
+    
+    rho = norm*rrs**(-gamma)*(1+rrs**alpha)**((gamma-beta)/alpha)
     
     return rho
