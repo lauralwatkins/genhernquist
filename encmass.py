@@ -25,10 +25,10 @@ def encmass(r, norm, rs, alpha, beta, gamma):
     
     a = (3.-gamma)/alpha
     b = (gamma-beta)/alpha
-    y = (r/rs)**alpha
+    y = ((r/rs).to(u.dimensionless_unscaled).value)**alpha
     
     fn = lambda x: x**a * special.hyp2f1(a, -b, 1+a, -x)/a
     
-    encmass = (4*np.pi*norm*rs**3*fn(y.value)).to(u.Msun)
+    encmass = (4*np.pi*norm*rs**3*fn(y)/alpha).to(u.Msun)
     
     return encmass
