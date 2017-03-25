@@ -4,6 +4,8 @@
 # Laura L Watkins [lauralwatkins@gmail.com]
 # -----------------------------------------------------------------------------
 
+from __future__ import division, print_function
+
 
 def dens_slope(r, rs, alpha, beta, gamma):
     

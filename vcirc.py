@@ -4,6 +4,7 @@
 # Laura L Watkins [lauralwatkins@gmail.com]
 # -----------------------------------------------------------------------------
 
+from __future__ import division, print_function
 import numpy as np
 from astropy import units as u, constants as c
 from scipy import special
