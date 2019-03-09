@@ -1,16 +1,11 @@
 #!/usr/bin/env python
-# -----------------------------------------------------------------------------
-# GENHERNQUIST.ENCMASS
-# Laura L Watkins [lauralwatkins@gmail.com]
-# -----------------------------------------------------------------------------
 
-from __future__ import division, print_function
 import numpy as np
 from astropy import units as u
 from scipy import special
 
 
-def encmass(r, norm, rs, alpha, beta, gamma):
+def Cumulative3D(r, norm, rs, alpha, beta, gamma):
     
     """
     Enclosed mass profile of a generalised Hernquist model.
@@ -24,12 +19,20 @@ def encmass(r, norm, rs, alpha, beta, gamma):
       gamma : inner logarithmic slope
     """
     
-    a = (3.-gamma)/alpha
+    # base units of volume density and their powers
+    bases = np.array(norm.unit.bases)
+    powers = np.array(norm.unit.powers)
+    
+    # length unit for volume
+    length_unit = bases[powers==-3][0]
+    
+    
+    a = (3-gamma)/alpha
     b = (gamma-beta)/alpha
     y = ((r/rs).to(u.dimensionless_unscaled).value)**alpha
     
     fn = lambda x: x**a * special.hyp2f1(a, -b, 1+a, -x)/a
     
-    encmass = (4*np.pi*norm*rs**3*fn(y)/alpha).to(u.Msun)
+    cumulative = 4*np.pi*norm*rs.to(length_unit)**3*fn(y)/alpha
     
-    return encmass
+    return cumulative

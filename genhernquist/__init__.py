@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from .dens_slope import dens_slope
-from .density import density
-from .encmass import encmass
-from .vcirc import vcirc
+from .dens_slope import VolumeDensitySlope
+from .density import VolumeDensity
+from .encmass import Cumulative3D
+from .vcirc import CircularVelocity

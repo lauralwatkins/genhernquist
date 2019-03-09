@@ -1,17 +1,12 @@
 #!/usr/bin/env python
-# -----------------------------------------------------------------------------
-# GENHERNQUIST.VCIRC
-# Laura L Watkins [lauralwatkins@gmail.com]
-# -----------------------------------------------------------------------------
 
-from __future__ import division, print_function
 import numpy as np
 from astropy import units as u, constants as c
 from scipy import special
-from .encmass import encmass
+from .encmass import Cumulative3D
 
 
-def vcirc(r, norm, rs, alpha, beta, gamma):
+def CircularVelocity(r, norm, rs, alpha, beta, gamma):
     
     """
     Enclosed mass profile of a generalised Hernquist model.
@@ -25,7 +20,7 @@ def vcirc(r, norm, rs, alpha, beta, gamma):
       gamma : inner logarithmic slope
     """
     
-    mass = encmass(r, norm, rs, alpha, beta, gamma)
+    mass = Cumulative(r, norm, rs, alpha, beta, gamma)
     
     vcirc = (np.sqrt(c.G*mass/r)).to("km/s")
     

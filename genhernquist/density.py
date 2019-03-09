@@ -1,14 +1,9 @@
 #!/usr/bin/env python
-# -----------------------------------------------------------------------------
-# GENHERNQUIST.DENSITY
-# Laura L Watkins [lauralwatkins@gmail.com]
-# -----------------------------------------------------------------------------
 
-from __future__ import division, print_function
 from astropy import units as u
 
 
-def density(r, norm, rs, alpha, beta, gamma):
+def VolumeDensity(r, norm, rs, alpha, beta, gamma):
     
     """
     Density profile of a generalised Hernquist model.
