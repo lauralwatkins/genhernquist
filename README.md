@@ -1,13 +1,6 @@
 GENHERNQUIST
 ============
 
-> **AUTHORS**
-Laura L Watkins (STScI), <lauralwatkins@gmail.com>
-
-
--------------------------------------------------------------------------------
-
-
 CONTENTS
 --------
 
@@ -35,10 +28,11 @@ CODE DESCRIPTION
 
 This is a collection of python functions for generating various quantities for generalised Hernquist profiles. Please use/add to/modify them.
 
-* **dens\_slope_**: Slope of the density profile.
-* **density**: Density profile.
-* **encmass**: Enclosed mass profile.
-* **vcirc**: Circular velocity profile.
+* **CircularVelocity**: Circular velocity profile.
+* **Cumulative3D**: 3D Cumulative (enclosed) profile.
+* **Normalisation**: Calculate the normalisation required for a target enclosed total.
+* **VolumeDensity**: Volume density profile.
+* **VolumeDensitySlope**: Slope of the volume density profile.
 
 
 -------------------------------------------------------------------------------
