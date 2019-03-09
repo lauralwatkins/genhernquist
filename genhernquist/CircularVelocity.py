@@ -3,13 +3,13 @@
 import numpy as np
 from astropy import units as u, constants as c
 from scipy import special
-from .encmass import Cumulative3D
+from .Cumulative3D import Cumulative3D
 
 
 def CircularVelocity(r, norm, rs, alpha, beta, gamma):
     
     """
-    Enclosed mass profile of a generalised Hernquist model.
+    Circular velocity profile of a generalised Hernquist model.
     
     INPUTS
       r     : radial variable (requires unit)
@@ -20,7 +20,7 @@ def CircularVelocity(r, norm, rs, alpha, beta, gamma):
       gamma : inner logarithmic slope
     """
     
-    mass = Cumulative(r, norm, rs, alpha, beta, gamma)
+    mass = Cumulative3D(r, norm, rs, alpha, beta, gamma)
     
     vcirc = (np.sqrt(c.G*mass/r)).to("km/s")
     
